@@ -45,7 +45,7 @@ class Plugin():
     # remove elementos indesejados da pagina, titulos no meio
     # da materia etc... se precisar.
     def _remove_elements(self):
-        for el in self.bs.find_all(['b'] ,text=re.compile(r'^(Confira:|Leia também|)(.*)')):
+        for el in self.bs.find_all(['b'] ,text=re.compile(r'^(Confira:|Leia também:)(.*)')):
             try:
                 el.parent.decompose()
             except AttributeError:
