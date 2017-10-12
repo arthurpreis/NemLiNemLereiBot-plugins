@@ -29,6 +29,8 @@ class Plugin():
             self.page = r.text
             self.bs = BeautifulSoup(self.page, 'html.parser')
 
+            self._remove_elements()
+
             subtitle = self._get_subtitle()
             date_published = self._get_published_date()
             content = self._get_content()
@@ -43,7 +45,11 @@ class Plugin():
     # remove elementos indesejados da pagina, titulos no meio
     # da materia etc... se precisar.
     def _remove_elements(self):
-        pass
+        for el in self.bs.find_all(['b'] ,text=re.compile(r'^(Confira:|Leia também|)(.*)')):
+            try:
+                el.parent.decompose()
+            except AttributeError:
+                pass
 
 
     # localiza o subtitulo pelo seletor css
@@ -66,13 +72,12 @@ class Plugin():
         paragraphs_list = []
         paragraphs = self.bs.select('.gp-cont .texto-materia > p')
         for paragraph in paragraphs:
-            if len(paragraph.text) > 20:
-                paragraphs_list.append(paragraph.text.strip())
+            paragraphs_list.append(paragraph.text.strip())
         return ' '.join(paragraphs_list)
 
     # Isso é irrelevante para o bot, útil para testar standalone =)
 def test():
-    url = 'http://www.gazetadopovo.com.br/politica/republica/pressionado-stf-julga-acao-que-pode-devolver-mandato-ao-senador-aecio-neves-775z7k6mr5jwf2zxjku06b5v5'
+    url = 'http://www.gazetadopovo.com.br/justica/pais-veganos-sao-condenados-por-morte-de-bebe-5o73auq0x06xxh7hvkr0xifrr'
     pl = Plugin()
     metadata = pl.extract_metadata(url)
     print(metadata)
