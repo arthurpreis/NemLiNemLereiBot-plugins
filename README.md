@@ -29,11 +29,11 @@ O [NemLiNemLereiBot](https://github.com/CaioWzy/NemLiNemLereiBot) utiliza os plu
 
 ## TODO:
 1. Ir implementando (g1 é o mais utilizado);
-2. Quantificar quais são os portais mais postados no sub;
+2. ~~Quantificar quais são os portais mais postados no sub;~~
 3. Possivelmente refatorar parsers que sejam parecidos em mais de um site;
 4. Estatísticas de uso e qualidade de cada plugin (?);
 5. Manter;
-6. Adicionar automaticamente a lista de plugins a ser implementados conforme posts novos com a flair 'notícia'.
+6. ~~Adicionar automaticamente a lista de plugins a ser implementados conforme posts novos com a flair 'notícia'.~~ vide site_rank.py
 
 
 
