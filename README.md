@@ -9,20 +9,31 @@ O [NemLiNemLereiBot](https://github.com/CaioWzy/NemLiNemLereiBot) utiliza os plu
 - [x] http://www.gazetadopovo.com.br/
 - [x] https://g1.globo.com
 - [ ] https://www.cartacapital.com.br
-- [ ] http://www.correiobraziliense.com.br/
-- [ ] http://www.correio24horas.com.br/
-- [ ] http://www.dw.com/pt-br/
+-- [x] título
+-- [x] data
+-- [ ]conteúdo
+- [x] http://www.correiobraziliense.com.br/
+- [x] http://www.correio24horas.com.br/
+- [ ] ~~http://www.dw.com/~~ *não é br* 
 - [ ] http://www.jb.com.br/
-- [ ] http://www.jornaldebrasilia.com.br/
+-- [x] título
+-- [x] data
+-- [ ]conteúdo
+- [x] http://www.jornaldebrasilia.com.br/
 - [ ] https://www.tecmundo.com.br/
-- [ ] https://www.theintercept.com/
+-- [x] título
+-- [x] data
+-- [x]conteúdo
+-- [ ] remover propagandas (cupons de desconto) do corpo do texto
+- [ ] ~~https://www.theintercept.com/~~ *não é br*
 
 ## TODO:
 1. Ir implementando (g1 é o mais utilizado);
 2. Quantificar quais são os portais mais postados no sub;
 3. Possivelmente refatorar parsers que sejam parecidos em mais de um site;
 4. Estatísticas de uso e qualidade de cada plugin (?);
-5. Manter
+5. Manter;
+6. Adicionar automaticamente a lista de plugins a ser implementados conforme posts novos com a flair 'notícia'.
 
 
 
