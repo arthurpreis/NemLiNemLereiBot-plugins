@@ -58,10 +58,19 @@ class Plugin():
 
     # localiza e parsea a data para formato datetime obj
     def _get_published_date(self):
-        # Talvez seja feito futuramente...
-        pass
+        # TODO: encontrar uma maneira mais elegante e refatorar pra outros sites tbm usarem essa função
+        # TODO: aumentar o dict para aceitar datas em ingles e com abreviação dos meses
+        months = {'janeiro': '01', 'fevereiro': '02', 'março': '03', 'abril': '04',
+                    'maio': '05', 'junho': '06', 'julho': '07', 'agosto': '08',
+                    'setembro': '09', 'outubro': '10', 'novembro': '11', 'dezembro': '12'}
+        state = str(self.bs.select('.n--noticia__state > p'))
+        date = re.search(r'([0-9])+( )+\w+ ([0-9])+', state).group(0).split(' ')
+        date[1] = months[date[1].lower()]
+        date_str = date[0] + '/' + date[1] + '/' + date[2]
+        date_published = datetime.strptime(date_str, "%d/%m/%Y").date()
+        return date_published
 
-    # localiza os paragrafos 
+    # localiza os paragrafos
     def _get_content(self):
         paragraphs_list = []
         paragraphs = self.bs.select('.n--noticia__content > p')
